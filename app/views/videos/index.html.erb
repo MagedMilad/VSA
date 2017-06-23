@@ -1,0 +1,84 @@
+<style type="text/css">
+td {
+    padding:0 5px 0 15px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+#myButton {
+  margin-top: 3px;
+  float:right;
+}
+</style>
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 style="line-height: 0px;">Listing Videos</h1>
+      </div>
+      <div class="col-md-6">
+        <%= link_to "New Video", new_video_path, type:"button", id:"myButton", :class => "btn btn-primary new-video-btn"%>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <table  class="table table-striped header-fixed">
+      <!-- <thead>
+        <tr>
+          <th colspan="3"></th>
+        </tr>
+      </thead> -->
+      <tbody>
+        <% @videos.each do |video| %>
+          <tr class="spaceUnder">
+            <td> <%= image_tag(video.attach_video.url(:thumb)) %> </td>
+            <td> <%= video.attach_video_file_name %></td>
+            <td><%= link_to 'Show', video %></td>
+            <td> | </td>
+            <td><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin-top: 14px;">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Introduction
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          Video has become one of the most common sources of visual information. But, as the amount of video data is daunting and the number of videos is rapidly increasing — 72 Hours of video are uploaded to YouTube every 60 seconds and it takes over 82 years to watch all videos uploaded to YouTube per day! we need a tool to summarize videos. A tool that aims to compactly depict the original video to make a shorter watchable video with the important events presented in a shorter period of time. 
+          
+          In our project, we implemented one of the ways of video summarization using Long Short-Term Memory (LSTM) to model the variable-range temporal dependency among video frames, so as to derive both representative and compact video summaries.
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+<br>
+

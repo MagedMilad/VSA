@@ -1,0 +1,48 @@
+<h1>Videos#show</h1>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js">
+
+  var so = new SWFObject('/flash/player.swf', 'mpl', '480', '360', '8');
+
+  so.addParam('allowscriptaccess', 'always');
+
+  so.addParam('allowfullscreen', 'true');
+
+  so.addVariable('height', '360');
+
+  so.addVariable('width', '480');
+
+  so.addVariable('file', '<%= @video.attach_video.url %>');
+
+  so.addVariable('file', '<%= @video.summarized_video.url %>');
+
+  so.write('player');
+</script>
+
+  <body>
+
+  </div>
+      </div>
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+      <div class="container">
+      <div class="row">
+          <div class="col-xs-6">
+          <div style="font-size:25px">Original Video</div>
+            <% if  @video.present? %>
+            <%= video_tag(@video.attach_video.url, size: "350x350",controls: true, poster: "video.png") %>
+            <% end %>
+          </div>
+          <div class="col-xs-6">
+          <div style="font-size:25px">Summarized Video</div>
+            <% if  @video.present? && @video.summarized_video.present? %>
+            <%= video_tag(@video.summarized_video.url , size: "350x350",controls: true, poster: "video.png") %>
+            <% end %>
+          <div><%= image_tag("dwnload.png", :alt => "dwnload") %> <%= image_tag("youtube.png", :alt => "youtube") %></div>
+          </div>
+
+      </div>
+  </div>
+     
+  </body>
