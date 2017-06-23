@@ -62,3 +62,4 @@ gem "paperclip-ffmpeg", "~> 1.2.0"
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 gem 'purecss'
+gem 'materialize-sass'

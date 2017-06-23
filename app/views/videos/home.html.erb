@@ -3,13 +3,18 @@
 
 <div class="splash-container">
     <div class="splash">
-        <h1 class="splash-head">Big Bold Text</h1>
+        <h1 class="splash-head">Video Summerization</h1>
         <p class="splash-subhead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Video Summerization Application build by Super Software Engineers Students
         </p>
-        <p>
+        <%#<p>
             <a href="http://purecss.io" class="pure-button pure-button-primary">Get Started</a>
+        </p>%>
+        
+        <p>
+            <%= link_to 'Get Started', root_path , :class => "pure-button pure-button-primary" %>
         </p>
+        
     </div>
 </div>
 
@@ -58,9 +63,45 @@
         </div>
     </div>
 
-    <div class="ribbon l-box-lrg pure-g">
+    <div class="ribbon l-box-lrg">
+        <table>
+            <thead>
+            <tr>
+                <th align="center"><%= image_tag("ayman.jpg",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %></th>
+                <th align="center"><%= image_tag("omar.jpg",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %></th>
+                <th align="center"><%= image_tag("maged.jpg",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %></th>
+                <th align="center"><%= image_tag("mina.jpg",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %></th>
+                <th align="center"><%= image_tag("hend.jpg",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %></th>
+                <th align="center"><%= image_tag("salma.jpg",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %></th>
+                <th align="center"><%= image_tag("nourane.jpg",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td align="center"><p>Supervisor</p></td>
+                <td align="center"><p>Advisor</p></td>
+                <td align="center"><p>Software Development Manager</p></td>
+                <td align="center"><p>Software Developer</p></td>
+                <td align="center"><p>Backend Developer</p></td>
+                <td align="center"><p>Frontend Developer</p></td>
+                <td align="center"><p>Advisor</p></td>
+                
+            </tr>
+            <tr>
+                <td align="center"><a href="https://www.linkedin.com/in/ayman-khalafallah-88964079/">Ayman Khalafallah</a></td>
+                <td align="center"><a href="https://www.facebook.com/omar.elsherif.75">Omar El-Sherif</a></td>
+                <td align="center"><a href="https://www.linkedin.com/in/magedmilad/">Maged Milad</a></td>
+                <td align="center"><a href="https://www.linkedin.com/in/minasameh/">Mina Sameh</a></td>
+                <td align="center"><a href="https://www.linkedin.com/in/hend-almorsi/">Hend El-Morsy</a></td>
+                <td align="center"><a href="https://www.linkedin.com/in/salma-bakr-525344100/">Salma Bakr</a></td>
+                <td align="center"><a href="https://www.facebook.com/nourane.bechir">Nourane Ihab</a></td>
+            
+            </tr>
+            </tbody>
+        </table>
+<!--
         <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-            <%= image_tag("file-icons.png",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive") %>
+            <%= image_tag("file-icons.png",:width=>"300" ,:alt=>"File Icons" ,:class=>"pure-img-responsive img-circular") %>
             <%#<img width="300" alt="File Icons" class="pure-img-responsive" src="img/common/file-icons.png">%>
         </div>
         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
@@ -74,58 +115,37 @@
                 consequat. Duis aute irure dolor.
             </p>
         </div>
+        -->
     </div>
 
     <div class="content">
-        <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+        <h2 class="content-head is-center">Thank You</h2>
 
         <div class="pure-g">
             <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
+               <h4>Contact Us</h4>
+                <p>If you have any general doubt about our work or code which may be of interest for other researchers, please use the 
+                <a href="https://github.com/MagedMilad/Video-Summarization-with-Long-Short-term-Memory/issues">issues section</a>
+                    on this github repo.</a>
+                </p>
 
-                        <label for="name">Your Name</label>
-                        <input id="name" type="text" placeholder="Your Name">
-
-
-                        <label for="email">Your Email</label>
-                        <input id="email" type="email" placeholder="Your Email">
-
-                        <label for="password">Your Password</label>
-                        <input id="password" type="password" placeholder="Your Password">
-
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
+               
             </div>
 
             <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Contact Us</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-
                 <h4>More Information</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
+                    For more Information about the code or if you want to contibute, you can always visit
+                    <a href="https://github.com/MagedMilad/Video-Summarization-with-Long-Short-term-Memory/">our github repo</a>
+                    .</a>
                 </p>
             </div>
         </div>
 
     </div>
 
-    <div class="footer l-box is-center">
+    <%#<div class="footer l-box is-center">
         View the source of this layout to learn more. Made with love by the YUI Team.
-    </div>
+    </div>%>
 
 </div>
-
-
-
-
-</body>
-</html>

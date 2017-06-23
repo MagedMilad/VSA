@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ClipUploader</title>    
+    <title>VSA</title>    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     
     
@@ -9,8 +9,6 @@
     <%= stylesheet_link_tag "grids-responsive-min" , media: "all"%>
     <%= stylesheet_link_tag "font-awesome" , media: "all"%>
     <%= stylesheet_link_tag "marketing" , media: "all"%>
-    
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %> 
     
@@ -20,11 +18,8 @@
  
 <%#</div>%>
     <%= render "layouts/navigation" %>
-    <!--</div>
-    <div class="container-fluid">
+    <div class="main_container">
       <%= yield %>
-    </div>
-    -->
-    <%= yield %>
+    </div>   
   </body>
 </html>

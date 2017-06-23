@@ -1,4 +1,17 @@
-<h1>Videos#show</h1>
+<style type="text/css">
+
+
+.disqus_thread,h1{
+  margin: 100px;
+}
+
+
+</style>
+
+
+<h1>
+<%= @video.attach_video_file_name %>
+</h1>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js">
 
@@ -19,30 +32,52 @@
   so.write('player');
 </script>
 
-  <body>
 
-  </div>
-      </div>
+  <%#</div>
+      </div>%>
       <div class="container-fluid">
         <%= yield %>
       </div>
-      <div class="container">
-      <div class="row">
-          <div class="col-xs-6">
-          <div style="font-size:25px">Original Video</div>
-            <% if  @video.present? %>
-            <%= video_tag(@video.attach_video.url, size: "350x350",controls: true, poster: "video.png") %>
-            <% end %>
-          </div>
-          <div class="col-xs-6">
-          <div style="font-size:25px">Summarized Video</div>
-            <% if  @video.present? && @video.summarized_video.present? %>
-            <%= video_tag(@video.summarized_video.url , size: "350x350",controls: true, poster: "video.png") %>
-            <% end %>
-          <div><%= image_tag("dwnload.png", :alt => "dwnload") %> <%= image_tag("youtube.png", :alt => "youtube") %></div>
-          </div>
 
+
+      <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+              <div style="font-size:25px">Original Video</div>
+                <% if  @video.present? %>
+                <%= video_tag(@video.attach_video.url, size: "350x350",controls: true, poster: "video.png") %>
+                <% end %>
+              </div>
+            
+            <div class="col-xs-6">
+              <div style="font-size:25px">Summarized Video</div>
+                <% if  @video.present? && @video.summarized_video.present? %>
+                <%= video_tag(@video.summarized_video.url , size: "350x350",controls: true, poster: "video.png") %>
+                <% end %>
+              </div>
+            </div>
+        </div>
       </div>
-  </div>
      
-  </body>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+  consol.log("#{request.original_url}")
+  consol.log("#{@video.id}")
+  this.page.url = "#{request.original_url}";  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = "#{@video.id}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://video-summarization-app.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

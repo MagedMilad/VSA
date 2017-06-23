@@ -1,11 +1,14 @@
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">Your Site</a>
+<div class="main_container">
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <%#<a class="pure-menu-heading" href="">VSA</a>%>
+            <%= link_to 'Video Summerization App', root_path , :class => "pure-menu-heading" %>
 
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tour</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
-        </ul>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><%= link_to 'Home', root_path , :class => "pure-menu-heading"  %></li>
+                <li class="pure-menu-item"><%= link_to 'Videos', videos_path , :class => "pure-menu-heading" %></li>
+                <li class="pure-menu-item"><%= link_to 'Action', root_path , :class => "pure-menu-heading" %></li>
+            </ul>
+        </div>
     </div>
 </div>

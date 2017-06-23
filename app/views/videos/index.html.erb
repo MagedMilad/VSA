@@ -1,4 +1,5 @@
 <style type="text/css">
+
 td {
     padding:0 5px 0 15px;
 }
@@ -8,11 +9,15 @@ table {
     border-spacing: 0 1em;
 }
 
-#myButton {
-  margin-top: 3px;
-  float:right;
+.row{
+  margin: 50px;
 }
+
+
 </style>
+
+<%= stylesheet_link_tag "materialize" %>
+
 
 <p id="notice"><%= notice %></p>
 
@@ -24,37 +29,54 @@ table {
       <div class="col-md-6">
         <h1 style="line-height: 0px;">Listing Videos</h1>
       </div>
+      <!--
       <div class="col-md-6">
         <%= link_to "New Video", new_video_path, type:"button", id:"myButton", :class => "btn btn-primary new-video-btn"%>
       </div>
+      -->
     </div>
   </div>
 
 </div>
 
-<div class="row">
-  <div class="col-md-8">
-    <table  class="table table-striped header-fixed">
-      <!-- <thead>
-        <tr>
-          <th colspan="3"></th>
-        </tr>
-      </thead> -->
+
+
+<%#<div class="row">
+  <div class="col-md-8">%>
+    <table>
       <tbody>
         <% @videos.each do |video| %>
           <tr class="spaceUnder">
+              <div class="card horizontal">
+                <div class="card-image">
+                   <!-- <%= image_tag(video.attach_video.url(:thumb)) %> -->
+                    <%= image_tag("file-icons.png") %>
+
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <%= video.attach_video_file_name %>
+                  </div>
+                  <div class="card-action">
+                    <%= link_to 'Show', video %>
+                    <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
+              </div>
+            <!--
             <td> <%= image_tag(video.attach_video.url(:thumb)) %> </td>
             <td> <%= video.attach_video_file_name %></td>
             <td><%= link_to 'Show', video %></td>
             <td> | </td>
             <td><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            -->
           </tr>
         <% end %>
       </tbody>
     </table>
-  </div>
+  <%#</div>%>
 
-  <div class="col-md-4">
+  <%#<div class="col-md-4">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin-top: 14px;">
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
@@ -74,11 +96,11 @@ table {
     </div>
     </div>
   </div>
-</div>
+</div>%>
 
 
-</div>
-</div>
+<%#</div>%>
+<%#</div>%>
 
-<br>
+
 
