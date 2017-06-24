@@ -16,3 +16,6 @@
 //= require_tree .
 //= require video
 //= require materialize-sprockets
+//= require filterrific/filterrific-jquery
+//= require jquery-ui
+

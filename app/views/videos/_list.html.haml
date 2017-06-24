@@ -1,0 +1,69 @@
+:css
+  td {
+      padding:0 5px 0 15px;
+  }
+  tr {
+      margin: 10px;
+  }
+  
+  table {
+      border-collapse: separate;
+      border-spacing: 0 1em;
+      
+  }
+
+  .card{
+    margin: 1.5rem 0 1rem 0;
+  }
+  
+  .row{
+    margin: 50px;
+  }
+
+
+-# #filterrific_results
+-#   = stylesheet_link_tag "materialize"
+-#   %div
+-#     = page_entries_info videos
+-#   %table
+-#     %tbody
+-#       - @videos.each do |video|
+-#         %tr.spaceUnder
+-#           .card.horizontal
+-#             .card-image
+-#               = link_to video do
+-#                 = image_tag(video.attach_video.url(:thumb))
+-#             .card-stacked
+-#               .card-content
+-#                 = video.attach_video_file_name
+-#               .card-action
+-#                 = link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' }
+-# = will_paginate videos
+
+
+= stylesheet_link_tag "materialize"
+
+.well.well-small
+  .pull-right{ :'data-position' => 'bottom', :'data-intro' => 'Reset the filter settings to defaults.' }
+    = link_to "Reset filters", reset_filterrific_url, :class => 'btn btn-default btn-sm'
+  .chardin_box{ :'data-position' => 'bottom', :'data-intro' => "will_paginate's entries info works as expected." }
+    = page_entries_info videos, :model => 'video'
+  .chardin_box{ :'data-position' => 'bottom', :'data-intro' => 'Spinner indicates update.' }
+    = render_filterrific_spinner
+
+  %table
+    %tbody
+      - @videos.each do |video|
+        %tr.spaceUnder
+          .card.horizontal{:style =>" margin: 1.5rem 0 1rem 0;"}
+            .card-image
+              = link_to video do
+                = image_tag(video.attach_video.url(:thumb))
+            .card-stacked
+              .card-content
+                = video.attach_video_file_name
+              .card-action
+                = link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' }
+
+.chardin_box{ :'data-position' => 'top', :'data-intro' => "will_paginate's paginator works as expected." }
+  = will_paginate videos, renderer: BootstrapPagination::Rails

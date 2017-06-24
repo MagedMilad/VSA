@@ -1,0 +1,5 @@
+<%# app/views/students/index.js.erb %>
+<% js = escape_javascript(
+  render(partial: 'videos/list', locals: { videos: @videos })
+) %>
+$("#results").html("<%= js %>");
