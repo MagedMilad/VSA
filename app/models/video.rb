@@ -3,12 +3,12 @@ class Video < ActiveRecord::Base
 
   has_attached_file :attach_video, :styles => {
     :medium => { :geometry => "640x480", :format => 'mp4' },
-    :thumb => { :geometry => "100x100#", :format => 'jpg', :time => 10 }
+    :thumb => { :geometry => "200x200#", :format => 'jpg', :time => 5 }
   }, :processors => [:transcoder]
 
   has_attached_file :summarized_video, :styles => {
     :medium => { :geometry => "640x480", :format => 'mp4' },
-    :thumb => { :geometry => "100x100#", :format => 'jpg', :time => 10 }
+    :thumb => { :geometry => "300x300#", :format => 'jpg', :time => 5 }
   }, :processors => [:transcoder]
 
   validates_attachment_presence :attach_video

@@ -70,14 +70,14 @@
 
 -# -->
 
-
 .page-header{ :style => 'margin-bottom: 70px;' }
   
  
-
-.well
+%div{:class => "pure-u-lg-1-12"}
+.well{:class => "pure-u-lg-5-6"}
   = form_for_filterrific @filterrific do |f|
     .row
+      
       .col-md-3
         .form-group.chardin_box{ :'data-position' => 'top', :'data-intro' => 'Search by video name.' }
           %label Search
@@ -105,7 +105,8 @@
 
 #results
   = render :partial => 'videos/list',
-           :locals => { :videos => @videos }
+           :locals => { :videos => @videos },
+           :class => "pure-u-lg-1-2"
 
 :javascript
   $('.js-datepicker').datepicker();

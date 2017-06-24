@@ -44,9 +44,8 @@
 <div class="pure-u-lg-3-4">
       <div class="">
                 <% if  @video.present? %>
-                <%= video_tag(@video.attach_video.url, size: "900x400",controls: true, poster: "video.png") %>
+                <%= video_tag(@video.attach_video.url, size: "900x400",controls: true, poster: "") %>
                 <% end %>
-            <%= @video.attach_video.url %>
             <!-- <div class="col-xs-6">
               <div style="font-size:25px">Summarized Video</div>
                 <% if  @video.present? && @video.summarized_video.present? %>
