@@ -43,22 +43,28 @@ table {
 
 <%#<div class="row">
   <div class="col-md-8">%>
+  <div class="pure-u-md-1-5"></div>
+  <div class="pure-u-md-3-5">
     <table>
       <tbody>
         <% @videos.each do |video| %>
           <tr class="spaceUnder">
               <div class="card horizontal">
-                <div class="card-image">
-                   <!-- <%= image_tag(video.attach_video.url(:thumb)) %> -->
-                    <%= image_tag("file-icons.png") %>
-
-                </div>
+                
+                  <div class="card-image">
+                  <%= link_to video do%> 
+                      <%= image_tag(video.attach_video.url(:thumb)) %> 
+                     <!-- <%= image_tag("file-icons.png") %>-->
+ <% end %>
+                  </div>
+               
                 <div class="card-stacked">
                   <div class="card-content">
-                    <%= video.attach_video_file_name %>
+                      <%= video.attach_video_file_name %>
+                   
                   </div>
                   <div class="card-action">
-                    <%= link_to 'Show', video %>
+                    
                     <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
                   </div>
                 </div>
@@ -74,6 +80,8 @@ table {
         <% end %>
       </tbody>
     </table>
+  </div>
+  
   <%#</div>%>
 
   <%#<div class="col-md-4">

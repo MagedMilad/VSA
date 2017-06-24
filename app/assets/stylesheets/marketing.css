@@ -187,7 +187,7 @@ a.pure-button-primary {
     min-height: 12%;
     z-index: 2;
     background: white;
-
+    /*background-image: image-url('banner10.jpg');*/
 }
 
 /* We want to give the content area some more padding */

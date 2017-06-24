@@ -2,7 +2,8 @@
 
 
 .disqus_thread,h1{
-  margin: 100px;
+  margin-top: 100px;
+  margin-left: 100px;
 }
 
 
@@ -13,7 +14,7 @@
 <%= @video.attach_video_file_name %>
 </h1>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js">
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js">
 
   var so = new SWFObject('/flash/player.swf', 'mpl', '480', '360', '8');
 
@@ -30,7 +31,7 @@
   so.addVariable('file', '<%= @video.summarized_video.url %>');
 
   so.write('player');
-</script>
+</script> -->
 
 
   <%#</div>
@@ -39,32 +40,26 @@
         <%= yield %>
       </div>
 
-
-      <div class="container">
-        <div class="row">
-            <div class="col-xs-6">
-              <div style="font-size:25px">Original Video</div>
+<div class="pure-u-lg-1-8"></div>
+<div class="pure-u-lg-3-4">
+      <div class="">
                 <% if  @video.present? %>
-                <%= video_tag(@video.attach_video.url, size: "350x350",controls: true, poster: "video.png") %>
+                <%= video_tag(@video.attach_video.url, size: "900x400",controls: true, poster: "video.png") %>
                 <% end %>
-              </div>
-            
-            <div class="col-xs-6">
+            <%= @video.attach_video.url %>
+            <!-- <div class="col-xs-6">
               <div style="font-size:25px">Summarized Video</div>
                 <% if  @video.present? && @video.summarized_video.present? %>
                 <%= video_tag(@video.summarized_video.url , size: "350x350",controls: true, poster: "video.png") %>
                 <% end %>
               </div>
-            </div>
-        </div>
+            </div> -->
+        
       </div>
      
 <div id="disqus_thread"></div>
+</div>
 <script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
 var disqus_config = function () {
   consol.log("#{request.original_url}")
