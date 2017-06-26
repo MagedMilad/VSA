@@ -57,14 +57,14 @@
         %tr.spaceUnder
           .card.horizontal{:style =>" margin: 1.5rem 0 1rem 0;"}
             .card-image
-              = link_to video do
+              = link_to videos_show_path(:id => video.id) do
                 = image_tag(video.attach_video.url(:thumb))
             .card-stacked
               .card-content
                 = video.attach_video_file_name
               .card-action
                 = link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' }
-        
+                = link_to "Summary available", videos_show_path(:summary => "true", :id => video.id)
 
 %div{:class => "pure-u-lg-1-12"}
 .chardin_box{ :'data-position' => 'top', :class => "pure-u-lg-5-6", :'data-intro' => "will_paginate's paginator works as expected." }

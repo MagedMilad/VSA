@@ -1,3 +1,7 @@
+
+
+
+<!--
 <%= form_for(@video, multipart: true) do |f| %>
   
   <div class="field">
@@ -20,3 +24,39 @@
     <%= f.submit %>
   </div>
 <% end %>
+-->
+
+<div class = "center-align">
+  <%= form_for(@video, multipart: true) do |f| %>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <%= f.file_field :attach_video, :required => 'required' %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+    
+    <% if @video.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+        <ul>
+        <% @video.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= button_tag type: 'submit', class: "btn waves-effect waves-light" ,data: {disable_with:"<i class='fa fa-spinner fa-spin'></i> summarizing your video..."} do %>Submit
+      <i class="material-icons right">send</i>
+    <% end %>
+    
+    
+
+
+    
+  <% end %>
+</div>

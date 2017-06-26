@@ -2,13 +2,13 @@ class Video < ActiveRecord::Base
   require 'date'
 
   has_attached_file :attach_video, :styles => {
-    :medium => { :geometry => "640x480", :format => 'mp4' },
+    # :medium => { :geometry => "640x480", :format => 'mp4' },
     :thumb => { :geometry => "200x200#", :format => 'jpg', :time => 5 }
   }, :processors => [:transcoder]
 
   has_attached_file :summarized_video, :styles => {
-    :medium => { :geometry => "640x480", :format => 'mp4' },
-    :thumb => { :geometry => "300x300#", :format => 'jpg', :time => 5 }
+    # :medium => { :geometry => "640x480", :format => 'mp4' },
+    :thumb => { :geometry => "200x200#", :format => 'jpg', :time => 5 }
   }, :processors => [:transcoder]
 
   validates_attachment_presence :attach_video
@@ -23,6 +23,7 @@ class Video < ActiveRecord::Base
       file = File.open(file_path)
       self.summarized_video = file
       file.close
+      File.delete(file_path)
       self.save!
     end
   end

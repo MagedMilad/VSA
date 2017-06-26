@@ -33,6 +33,8 @@ class VideosController < ApplicationController
     # In order for reset_filterrific to work, it's important that you add the
     # `or return` bit after the call to `initialize_filterrific`. Otherwise the
     # redirect will not work.
+    # script = "#{Rails.root}/public/system/summarize.py"
+    #     @info = %x(python script)
     @filterrific = initialize_filterrific(
       Video,
       params[:filterrific],
@@ -66,6 +68,14 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @video = Video.find(params[:id])
+    if params[:summary] == "true"
+      @url = @video.summarized_video.url
+      @name = @video.attach_video_file_name + " [summary]"
+    else
+      @url = @video.attach_video.url
+      @name = @video.attach_video_file_name
+    end
   end
 
   # GET /videos/new
@@ -81,11 +91,24 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-
+    @process = true;
     respond_to do |format|
       if @video.save
+        script1 = "#{Rails.root}/public/system/summarize.py"
+        script2 = "/home/magedmilad/PycharmProjects/VSA/VSA.py"
+        command = "python '" + script1 +"' "+ @video.attach_video.url.to_s + " " + @video.id.to_s
+        if File.file?(script2)
+          logger.info "cccccccccccccccccccccccccc found the summarize script"
+          command = "python #{script2} -p '#{Rails.root}/public#{@video.attach_video.url.to_s}' -id #{@video.id} -dir '#{Rails.root}/public/videos/summary/'"
+        end
+        logger.info "cccccccccccccccccccccccccc" + command.to_s
+        logger.info "cccccccccccccccccccccccccc" + "#{Rails.root}/public#{@video.attach_video.url.to_s}"
+        @info = %x(#{command} 2>&1) 
+        logger.info "cccccccccccccccccccccccccc"
+        logger.info @info.to_s
+        @video.add_summarized_video
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render :show, status: :created, location: @video }
+        format.json { render :show, status: :created, location: @video}
       else
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
@@ -124,7 +147,7 @@ class VideosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_video
       @video = Video.find(params[:id])
-      @video.add_summarized_video
+      # @video.add_summarized_video
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

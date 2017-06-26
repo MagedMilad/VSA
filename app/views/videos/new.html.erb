@@ -19,8 +19,14 @@
 
 <% end %> -->
 
-<h1>New Video</h1>
+<%= stylesheet_link_tag "materialize" %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<h1 style="margin-top: 5rem;">New Video</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', videos_path %>
+
+<%= link_to (videos_path) , :class=> "btn waves-effect waves-light" do %>Back
+	<i class="material-icons left">arrow_back</i>
+<% end %>

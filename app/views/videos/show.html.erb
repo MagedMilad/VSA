@@ -6,12 +6,18 @@
   margin-left: 100px;
 }
 
+<%#video{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}%>
+
 
 </style>
 
 
 <h1>
-<%= @video.attach_video_file_name %>
+<%= @name %>
 </h1>
 
 <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js">
@@ -34,17 +40,18 @@
 </script> -->
 
 
+
   <%#</div>
       </div>%>
       <div class="container-fluid">
         <%= yield %>
       </div>
 
-<div class="pure-u-lg-1-8"></div>
-<div class="pure-u-lg-3-4">
-      <div class="">
+<div class="pure-u-lg-1-4"></div>
+<div class="pure-u-lg-1-4">
+      <div>
                 <% if  @video.present? %>
-                <%= video_tag(@video.attach_video.url, size: "900x400",controls: true, poster: "") %>
+                <%= videojs_rails sources: { mp4: @url}, setup: "{}", controls: true,height:"500", width:"600",:class => "vjs-big-play-centered",:id=>"example_video" %>
                 <% end %>
             <!-- <div class="col-xs-6">
               <div style="font-size:25px">Summarized Video</div>
@@ -56,8 +63,14 @@
         
       </div>
      
-<div id="disqus_thread"></div>
+
 </div>
+
+
+<div id="disqus_thread"></div>
+
+
+
 <script>
 
 var disqus_config = function () {
