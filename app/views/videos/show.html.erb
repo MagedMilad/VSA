@@ -48,10 +48,10 @@
       </div>
 
 <div class="pure-u-lg-1-4"></div>
-<div class="pure-u-lg-1-4">
+<div class="pure-u-lg-1-2">
       <div>
                 <% if  @video.present? %>
-                <%= videojs_rails sources: { mp4: @url}, setup: "{}", controls: true,height:"500", width:"600",:class => "vjs-big-play-centered",:id=>"example_video" %>
+                <%= videojs_rails sources: { mp4: @url}, setup: "{}", controls: true,height:"500", width:"635.5",:class => "vjs-big-play-centered",:id=>"example_video" %>
                 <% end %>
             <!-- <div class="col-xs-6">
               <div style="font-size:25px">Summarized Video</div>
@@ -62,12 +62,12 @@
             </div> -->
         
       </div>
-     
-
 </div>
-
-
-<div id="disqus_thread"></div>
+<div>
+<div class="pure-u-lg-1-12"></div>
+<div id="disqus_thread" class="well pure-u-lg-5-6" style="margin-top:20px"></div>
+</div>
+  
 
 
 

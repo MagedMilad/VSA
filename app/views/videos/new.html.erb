@@ -22,11 +22,15 @@
 <%= stylesheet_link_tag "materialize" %>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<h1 style="margin-top: 5rem;">New Video</h1>
-
+<h1 style="margin-top: 5rem;">Upload New Video</h1>
+<div class="pure-u-lg-1-4">
+</div>
+<div class="pure-u-lg-1-2">
+<div >
 <%= render 'form' %>
-
+</div>
 
 <%= link_to (videos_path) , :class=> "btn waves-effect waves-light" do %>Back
 	<i class="material-icons left">arrow_back</i>
 <% end %>
+</div>
